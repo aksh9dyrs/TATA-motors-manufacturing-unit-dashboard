@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TATA Motors Limited</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    h1, h2, h3, h4 {
+      font-family: 'Times New Roman', Times, serif !important;
+    }
+    @keyframes pulse-green {
+      0% { box-shadow: 0 0 16px 4px #4CAF50, 0 0 32px 8px #4CAF5077; }
+      50% { box-shadow: 0 0 32px 12px #4CAF50, 0 0 48px 16px #4CAF5044; }
+      100% { box-shadow: 0 0 16px 4px #4CAF50, 0 0 32px 8px #4CAF5077; }
+    }
+    @keyframes pulse-red {
+      0% { box-shadow: 0 0 16px 4px #e53935, 0 0 32px 8px #e5393577; }
+      50% { box-shadow: 0 0 32px 12px #e53935, 0 0 48px 16px #e5393544; }
+      100% { box-shadow: 0 0 16px 4px #e53935, 0 0 32px 8px #e5393577; }
+    }
+    .pulse-green { animation: pulse-green 1.2s infinite; }
+    .pulse-red { animation: pulse-red 1.2s infinite; }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .dynamic-gradient-title {
+      background: linear-gradient(270deg, #ffb347, #ffcc33, #43c6ac, #a1c4fd, #fbc2eb, #ffb347);
+      background-size: 1200% 1200%;
+      animation: gradientBG 8s ease-in-out infinite;
+      transition: box-shadow 0.3s;
+    }
+    .dynamic-title-box {
+      display: block;
+      width: 90%;
+      text-align: center;
+      padding: 18px 36px;
+      border-radius: 18px;
+      background: #10131a;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.28);
+      color: #fff;
+      font-weight: bold;
+      font-size: 3.2em;
+      border: 4px solid transparent;
+      background-clip: padding-box;
+      margin: 0 auto;
+    }
+    .dynamic-title-box:before {
+      content: '';
+      position: absolute;
+      top: -4px; left: -4px; right: -4px; bottom: -4px;
+      z-index: -1;
+      border-radius: 22px;
+      
+      background-size: 1200% 1200%;
+      animation: gradientBG 8s ease-in-out infinite;
+    }
+    .solid-dark-title {
+      font-size: 0.6em;
+    }
+    .section-info-box {
+      background: linear-gradient(135deg, #23243a 0%, #181c24 100%);
+      border-radius: 22px;
+      border: 4px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.22), 0 0 0 6px rgba(67,198,172,0.08);
+      color: #fff;
+      margin: 0 auto 1em auto;
+      padding: 10px 18px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .section-info-box:before {
+      content: '';
+      position: absolute;
+      top: -4px; left: -4px; right: -4px; bottom: -4px;
+      z-index: -1;
+      border-radius: 26px;
+      background: linear-gradient(270deg, #6b0505, #674f02, #ba5d0b,);
+      background-size: 1200% 1200%;
+      animation: gradientBG 8s ease-in-out infinite;
+      filter: blur(0.5px);
+    }
+    .section-title {
+      display: block;
+  width: 100vw;
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 22px;
+  background: transparent; /* Keeps background transparent */
+  position: relative;
+  z-index: 1;
+  color: #050504;
+  font-weight: bold;
+  font-size: 1.7em;
+  border: 2px solid #eeca15; /* Solid yellow border */
+  margin: 0 calc(-50vw + 50%) 0.7em calc(-50vw + 50%);
+  box-shadow: none; /* Removes the glowing/shadow effects */
+  overflow: hidden;
+    }
+    .section-title:before {
+      content: '';
+      position: absolute;
+      top: -4px; left: -4px; right: -4px; bottom: -4px;
+      z-index: -1;
+      border-radius: 26px;
+      background:linear-gradient(135deg,#872104 0%,#e408b5 100%);
+      background-size: 1200% 1200%;
+      animation: gradientBG 8s ease-in-out infinite;
+      filter: blur(0.5px);
+    }
+    .section-flex-row {
+      display: flex;
+      flex-direction: row;
+      gap: 18px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 3em;
+    }
+    @media (max-width: 1100px) {
+      .section-flex-row {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+      }
+    }
+    .section-flex-row > .section-info-box {
+      flex: 1 1 0;
+      min-width: 320px;
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .chatbot-container {
+      background: linear-gradient(135deg, #23243a 0%, #181c24 100%);
+      border-radius: 22px;
+      border: 4px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 6px 32px rgba(199, 10, 10, 0.22), 0 0 0 6px rgba(18, 192, 157, 0.08);
+      color: #fff;
+      margin: 0 calc(-50vw + 50%) 2em calc(-50vw + 50%);
+      padding: 32px 0 28px 0;
+      width: 80vw;
+      max-width: none;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .chatbot-container:before {
+      content: '';
+      position: absolute;
+      top: -4px; left: -4px; right: -4px; bottom: -4px;
+      z-index: -1;
+      border-radius: 26px;
+      background: linear-gradient(135deg,#fdb0a1 0%,#c2e9fb 100%);
+      background-size: 1200% 1200%;
+      animation: gradientBG 8s ease-in-out infinite;
+      filter: blur(0.5px);
+    }
+    .chatbot-inner {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .chat-messages {
+      min-height: 180px;
+      max-height: 320px;
+      overflow-y: auto;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chat-input-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .chat-input-row textarea#askQ {
+      width: 90%;
+      min-width: 300px;
+      max-width: 100%;
+    }
+    .chat-bubble {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 18px;
+      max-width: 80%;
+      font-size: 1.08em;
+      line-height: 1.5;
+      box-shadow: 0 2px 8px rgba(219, 6, 6, 0.1);
+      margin-bottom: 2px;
+      word-break: break-word;
+    }
+    .chat-bubble.user {
+      background: linear-gradient(135deg,#a1c4fd 0%,#c2e9fb 100%);
+      color: #23272b;
+      align-self: flex-end;
+    }
+    .chat-bubble.ai {
+      background: linear-gradient(135deg,#fbc2eb 0%,#a6c1ee 100%);
+      color: #23272b;
+      align-self: flex-start;
+    }
+    .ask-container {
+      margin: 0;
+      padding: 0;
+    }
+    #similarity {
+      min-height: 80vh;
+      position: relative;
+      z-index: 0;
+      background: linear-gradient(120deg, #320901 0%, #761103 100%, #282902 100%);
+      background-size: 200% 200%;
+      animation: similarityBGMove 12s ease-in-out infinite alternate;
+      overflow: hidden;
+    }
+    #similarity:before {
+      content: '';
+      position: absolute;
+      top: -10%; left: -10%; width: 120%; height: 120%;
+      background: radial-gradient(circle at 20% 30%, #3a3a60bb 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, #1e2a38bb 0%, transparent 60%),
+                  linear-gradient(120deg, #23243a88 0%, #43c6ac33 100%);
+      z-index: 0;
+      pointer-events: none;
+      animation: similarityOverlayMove 18s ease-in-out infinite alternate;
+    }
+    @keyframes similarityBGMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes similarityOverlayMove {
+      0% { transform: scale(1) translateY(0); opacity: 0.9; }
+      100% { transform: scale(1.08) translateY(-30px); opacity: 1; }
+    }
+    #similarity > * {
+      position: relative;
+      z-index: 1;
+    }
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(20, 20, 30, 0.85);
+      backdrop-filter: blur(2px);
+      justify-content: center; align-items: center;
+    }
+    .modal-content {
+      background: linear-gradient(120deg, #181c24 0%, #23243a 100%);
+      border: 2px solid #ffe066;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 #000a;
+      padding: 2.5rem 2rem 2rem 2rem;
+      min-width: 320px;
+      max-width: 90vw;
+      color: #ffe066;
+      position: relative;
+      animation: modalFadeIn 0.4s;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      color: #ffe066;
+      font-size: 1.6rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .modal-content label {
+      display: block;
+      margin: 1.2rem 0 0.3rem 0;
+      color: #ffe066;
+      font-weight: 600;
+    }
+    .modal-content input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      border: 1.5px solid #ffe066;
+      background: #23243a;
+      color: #ffe066;
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .modal-content input:focus {
+      border: 2px solid #43c6ac;
+    }
+    #loginAccessBtn {
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(90deg, #43c6ac 0%, #ffe066 100%);
+      color: #23243a;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #loginAccessBtn:hover {
+      background: linear-gradient(90deg, #ffe066 0%, #43c6ac 100%);
+    }
+    .close {
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      font-size: 2rem;
+      color: #ffe066;
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .close:hover {
+      color: #43c6ac;
+    }
+    .similarity-full-box {
+      width: 100%;
+      max-width: 900px;
+      margin: 2em auto 2em auto;
+      padding: 2.5em 2em;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .chart-box {
+      background: #23243a;
+      border: 2px solid #ffe066;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 #000a;
+      padding: 18px 24px;
+      min-width: 320px;
+      max-width: 400px;
+      flex: 1 1 320px;
+      margin-bottom: 0;
+    }
+    .chart-box canvas {
+      margin-top: 12px;
+      background: transparent;
+    }
+
+    /* 3D effect and animated glow for bar charts */
+    .chartjs-render-monitor {
+      filter: drop-shadow(0 6px 18px #43c6ac88) drop-shadow(0 2px 8px #FFD60044);
+    }
+
+    @keyframes barGlow {
+      0% { box-shadow: 0 0 16px 4px #43c6ac, 0 0 32px 8px #FFD60044; }
+      50% { box-shadow: 0 0 32px 12px #43c6ac, 0 0 48px 16px #FFD60088; }
+      100% { box-shadow: 0 0 16px 4px #43c6ac, 0 0 32px 8px #FFD60044; }
+    }
+
+    .glow-bar {
+      animation: barGlow 1.8s infinite alternate;
+      border-radius: 8px;
+      box-shadow: 0 4px 18px #43c6ac88, 0 2px 8px #FFD60044;
+    }
+
+    .chatbot-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe066 0%, #43c6ac 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      box-shadow: 0 0 18px 4px #ffe06655, 0 0 32px 8px #43c6ac33;
+      border: 3px solid #fff;
+    }
+    .chatbot-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .chatbot-header {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ffe066;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 12px #23243a88;
+    }
+    .chatbot-container.enhanced {
+      background: linear-gradient(135deg, #181c24 0%, #23243a 100%);
+      border: 2.5px solid #ffe066;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px 0 #000a, 0 0 24px 4px #ffe06633;
+      padding: 36px 0 32px 0;
+      max-width: 700px;
+      margin: 0 auto 2em auto;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: modalFadeIn 0.7s;
+    }
+    .chat-messages.enhanced {
+      min-height: 180px;
+      max-height: 340px;
+      overflow-y: auto;
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      padding: 0 18px;
+    }
+    .chat-bubble.user.enhanced {
+      background: linear-gradient(135deg,#a1c4fd 0%,#43c6ac 100%);
+      color: #23243a;
+      align-self: flex-end;
+      border-radius: 18px 18px 6px 18px;
+      box-shadow: 0 2px 12px #43c6ac55;
+      font-weight: 500;
+      font-size: 1.13em;
+      padding: 14px 22px;
+      max-width: 70%;
+      word-break: break-word;
+    }
+    .chat-bubble.ai.enhanced {
+      background: linear-gradient(135deg,#ffe066 0%,#fbc2eb 100%);
+      color: #23243a;
+      align-self: flex-start;
+      border-radius: 18px 18px 18px 6px;
+      box-shadow: 0 2px 12px #ffe06655;
+      font-weight: 500;
+      font-size: 1.13em;
+      padding: 14px 22px;
+      max-width: 70%;
+      word-break: break-word;
+    }
+    .chatbot-input-row.enhanced {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .chatbot-input-row.enhanced textarea#askQ {
+      width: 80%;
+      min-width: 260px;
+      max-width: 100%;
+      border-radius: 12px;
+      font-size: 1.13em;
+      padding: 12px 18px;
+      background: #23243a;
+      color: #ffe066;
+      border: 2px solid #43c6ac;
+      box-shadow: 0 2px 8px #43c6ac22;
+    }
+    .chatbot-input-row.enhanced button {
+      height: 48px;
+      padding: 0 32px;
+      font-size: 1.13em;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #43c6ac 0%, #ffe066 100%);
+      color: #23243a;
+      font-weight: bold;
+      border: none;
+      box-shadow: 0 2px 8px #43c6ac33;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .chatbot-input-row.enhanced button:hover {
+      background: linear-gradient(90deg, #ffe066 0%, #43c6ac 100%);
+    }
+    #aiFullReport table {
+      font-size: 0.92em;
+      border-collapse: collapse;
+      width: 100%;
+      table-layout: auto;
+      margin: 0.5em 0;
+      white-space: nowrap;
+      overflow-x: auto;
+      background: #181c24;
+    }
+    #aiFullReport th, #aiFullReport td {
+      padding: 3px 8px;
+      text-align: left;
+      border: 1px solid #43c6ac;
+      font-size: 0.92em;
+      white-space: nowrap;
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #aiFullReport tr {
+      height: 1.5em;
+    }
+    #aiFullReport thead th {
+      background: #23243a;
+      color: #ffe066;
+    }
+    #aiFullReport tbody tr {
+      background: #23243a;
+      color: #fff;
+    }
+    #aiFullReport {
+      overflow-x: auto;
+    }
+    .section-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe066 0%, #43c6ac 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px auto;
+      box-shadow: 0 0 18px 4px #ffe06655, 0 0 32px 8px #43c6ac33;
+      border: 3px solid #fff;
+    }
+    .section-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .similarity-section, .cosine-section {
+      background: linear-gradient(135deg, #181c24 0%, #23243a 100%);
+      border: 2.5px solid #ffe066;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px 0 #000a, 0 0 24px 4px #ffe06633;
+      padding: 36px 0 32px 0;
+      max-width: 700px;
+      margin: 0 auto 2em auto;
+      position: relative;
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: modalFadeIn 0.7s;
+    }
+    .similarity-section .section-title, .cosine-section .section-title {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ffe066;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 12px #23243a88;
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
+    .similarity-section .section-info-box, .cosine-section .section-info-box {
+      background: none;
+      border: none;
+      box-shadow: none;
+      color: #fff;
+      margin: 0 auto 1em auto;
+      padding: 0 18px;
+      max-width: 600px;
+      width: 100%;
+      position: relative;
+      overflow: visible;
+      text-align: center;
+    }
+    .similarity-section .search-container, .cosine-section .search-container {
+      display: flex;
+      gap: 12px;
+      align-items: flex-end;
+      width: 100%;
+      justify-content: center;
+      margin: 24px auto 2em auto;
+      max-width: 500px;
+    }
+    .similarity-section input, .cosine-section input {
+      width: 60%;
+      min-width: 120px;
+      max-width: 100%;
+      border-radius: 12px;
+      font-size: 1.13em;
+      padding: 12px 18px;
+      background: #23243a;
+      color: #ffe066;
+      border: 2px solid #43c6ac;
+      box-shadow: 0 2px 8px #43c6ac22;
+    }
+    .similarity-section button, .cosine-section button {
+      height: 48px;
+      padding: 0 32px;
+      font-size: 1.13em;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #43c6ac 0%, #ffe066 100%);
+      color: #23243a;
+      font-weight: bold;
+      border: none;
+      box-shadow: 0 2px 8px #43c6ac33;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .similarity-section button:hover, .cosine-section button:hover {
+      background: linear-gradient(90deg, #ffe066 0%, #43c6ac 100%);
+    }
+    .similarity-section .result-container, .cosine-section .result-container {
+      margin-top: 18px;
+      width: 100%;
+      text-align: left;
+    }
+    .auto-bar-box {
+      width: 100vw;
+      max-width: 1200px;
+      min-width: 800px;
+      margin: 0 auto 32px auto;
+      overflow-x: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .auto-bar-box canvas {
+      min-width: 500px;
+      width: 800px;
+      max-width: 900px;
+      height: 100px !important;
+    }
+  </style>
+</head>
+<body>
+  <div style="display:flex;justify-content:center;align-items:center;gap:24px;margin-bottom:24px;margin-top:18px;">
+    <div style="border:1.5px solid #bdbdbd;border-radius:12px;padding:12px 24px;max-width:900px;box-shadow:0 2px 8px rgba(0,0,0,0.07);display:flex;justify-content:center;align-items:center;">
+      <nav style="width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;box-shadow:none;padding:0;margin:0;">
+        <button data-tab="events">Events</button>
+        <button data-tab="similarity">Similarity</button>
+        <button data-tab="cosine">Cosine Similarity</button>
+        <button data-tab="ask">Ask AI</button>
+        <button data-tab="umap">UMAP</button>
+        <button data-tab="logs">Logs</button>
+      </nav>
+    </div>
+    <div style="border:1.5px solid #bdbdbd;border-radius:12px;padding:10px 22px;display:flex;align-items:center;gap:10px;min-width:180px;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:rgba(30,30,30,0.85);">
+      <span style="font-weight:bold;color:#fff;">Database Connected</span>
+      <input type="checkbox" id="dbConnected" style="display:none;" onchange="toggleDbDot()">
+      <span id="dbStatusDot" style="display:inline-block;width:22px;height:22px;border-radius:50%;background:#e53935;box-shadow:0 0 10px 2px #e53935;transition:.4s;cursor:pointer;"></span>
+    </div>
+    <button id="contactBtn" class="nav-btn">Contact</button>
+    <button id="loginBtn" class="nav-btn">Login/Signup</button>
+    <button id="suggestionBtn" class="nav-btn" style="background:linear-gradient(90deg,#43c6ac,#ffe066);color:#23243a;font-weight:bold;">Suggestion</button>
+  </div>
+  <div id="dashboard-main">
+    <header>
+      <h1 style="text-align:center;margin-bottom:0;">
+        <span class="dynamic-title-box">
+          <span class="solid-dark-title">
+           TATA Motors Limited
+          </span>
+        </span>
+      </h1>
+      <h2>An AI-powered, full-stack smart manufacturing analytics dashboard combining vector search, event insights, and large language models (LLMs). It supports real-time data retrieval, similarity search using embeddings, interactive querying with LLMs, RAG evaluation, and autonomous AI agent assistance.</h2>
+      <div style="display:flex;justify-content:center;gap:18px;margin:18px 0 8px 0;flex-wrap:wrap;">
+        <div style="background:linear-gradient(135deg,#ffe29f 0%,#ffa99f 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:10px 18px;min-width:180px;flex:1 1 180px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">⚡ FastAPI</div>
+        <div style="background:linear-gradient(135deg,#a1c4fd 0%,#c2e9fb 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:10px 18px;min-width:180px;flex:1 1 180px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">🗄️ PostgreSQL (pgvector)</div>
+        <div style="background:linear-gradient(135deg,#fbc2eb 0%,#a6c1ee 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:10px 18px;min-width:180px;flex:1 1 180px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">🤖 Advanced AI models (Llama-4, etc.)</div>
+      </div>
+      <h3 style="text-align:center;">The dashboard is built with</h3>
+      <h4 style="margin-top: 16px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px;">
+          <div style="background:linear-gradient(135deg,#f8ffae 0%,#43c6ac 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🔁 Real-time machine event logging and tracking</div>
+          <div style="background:linear-gradient(135deg,#a1ffce 0%,#faffd1 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🌐 City-wise operational monitoring</div>
+          <div style="background:linear-gradient(135deg,#fbc2eb 0%,#f7d9e3 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🧠 AI-driven summaries and explanations of critical events</div>
+          <div style="background:linear-gradient(135deg,#a1c4fd 0%,#c2e9fb 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">📊 Visualization of event patterns and machine behaviors</div>
+          <div style="background:linear-gradient(135deg,#f8ffae 0%,#43c6ac 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🔍 Similarity search using vector embeddings for root-cause analysis</div>
+          <div style="background:linear-gradient(135deg,#fbc2eb 0%,#a6c1ee 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">🤖 LLM agent assistant using Llama-4-Maverick-17B-128E-Instruct for natural language queries</div>
+          <div style="background:linear-gradient(135deg,#a1ffce 0%,#faffd1 100%);border:1.5px solid #bdbdbd;border-radius:10px;padding:12px 18px;min-width:220px;flex:1 1 220px;color:#222;font-size:1em;box-shadow:0 2px 8px rgba(0,0,0,0.06);">📈 24/7 uptime with fallback to local inference if APIs are unavailable</div>
+        </div>
+      </h4>
+    </header>
+  </div>
+  <main>
+    <section id="events" class="tab"></section>
+    <section id="similarity" class="tab" style="display:none"></section>
+    <section id="cosine" class="tab" style="display:none"></section>
+    <section id="ask" class="tab" style="display:none"></section>
+    <section id="umap" class="tab" style="display:none"></section>
+    <section id="logs" class="tab" style="display:none"></section>
+  </main>
+  <script src="app.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function toggleDbDot() {
+      const cb = document.getElementById('dbConnected');
+      const dot = document.getElementById('dbStatusDot');
+      if (cb.checked) {
+        dot.style.background = '#39FF14';
+        dot.style.boxShadow = '0 0 16px 6px #39FF14, 0 0 32px 12px #39FF1444';
+      } else {
+        dot.style.background = '#e53935';
+        dot.style.boxShadow = '0 0 10px 2px #e53935, 0 0 24px 8px #e5393544';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const dot = document.getElementById('dbStatusDot');
+      const cb = document.getElementById('dbConnected');
+      dot.addEventListener('click', () => {
+        cb.checked = !cb.checked;
+        toggleDbDot();
+      });
+      toggleDbDot();
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var contactBtn = document.getElementById('contactBtn');
+      if (contactBtn) {
+        contactBtn.onclick = function() {
+          var footer = document.getElementById('contact-footer');
+          if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth' });
+          }
+        };
+      }
+      
+      // Restore user login state from localStorage
+      const savedEmail = localStorage.getItem('userEmail');
+      const savedInitials = localStorage.getItem('userInitials');
+      if (savedEmail && savedInitials) {
+        const loginBtn = document.getElementById('loginBtn');
+        loginBtn.textContent = savedInitials;
+        loginBtn.style.background = 'linear-gradient(90deg,#43c6ac,#ffe066)';
+        loginBtn.style.color = '#23243a';
+        loginBtn.style.fontWeight = 'bold';
+      }
+    });
+  </script>
+
+  <footer id="contact-footer" style="width:100%;margin-top:48px;display:flex;justify-content:center;align-items:center;">
+    <div style="background:#f8f8ff;border:1.5px solid #bdbdbd;border-radius:12px;padding:18px 32px;min-width:320px;max-width:600px;box-shadow:0 2px 8px rgba(0,0,0,0.08);display:flex;flex-direction:column;align-items:center;gap:12px;">
+      <span style="color:#222;font-size:1.1em;font-weight:bold;">Created and Maintained by Aksh Kumar Singh</span>
+      <div style="display:flex;gap:18px;align-items:center;">
+        <a href="https://github.com/aksh9dyrs" target="_blank" title="GitHub" style="display:inline-block;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width:32px;height:32px;filter:grayscale(0.2);">
+        </a>
+        <a href="https://www.linkedin.com/in/aksh-kumar-singh-89168822b/" target="_blank" title="LinkedIn" style="display:inline-block;">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:32px;height:32px;filter:grayscale(0.2);">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeLoginModal">&times;</span>
+      <h2>Login / Signup</h2>
+      <form id="loginForm">
+        <label for="loginEmail">Email ID</label>
+        <input type="email" id="loginEmail" name="loginEmail" required placeholder="Enter your email">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="loginPassword" required placeholder="Enter your password">
+        <button type="submit" id="loginAccessBtn">Access</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Modal logic
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeLoginModal = document.getElementById('closeLoginModal');
+
+    loginBtn.onclick = function() {
+      // Check if user is already logged in
+      const savedEmail = localStorage.getItem('userEmail');
+      const savedInitials = localStorage.getItem('userInitials');
+      
+      if (savedEmail && savedInitials) {
+        // User is logged in - show logout option
+        if (confirm(`Logged in as: ${savedEmail}\n\nClick OK to logout.`)) {
+          // Clear localStorage and reset button
+          localStorage.removeItem('userEmail');
+          localStorage.removeItem('userInitials');
+          loginBtn.textContent = 'Login/Signup';
+          loginBtn.style.background = '';
+          loginBtn.style.color = '';
+          loginBtn.style.fontWeight = '';
+          alert('Logged out successfully!');
+        }
+      } else {
+        // User is not logged in - open login modal
+        loginModal.style.display = 'flex';
+      }
+    }
+    closeLoginModal.onclick = function() {
+      loginModal.style.display = 'none';
+    }
+    window.onclick = function(event) {
+      if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+      }
+    }
+
+    document.getElementById('loginForm').onsubmit = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      // Call backend login API
+      fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ email, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === 'Login successful') {
+          // Change button text to show initials
+          const loginBtn = document.getElementById('loginBtn');
+          loginBtn.textContent = data.initials;
+          loginBtn.style.background = 'linear-gradient(90deg,#43c6ac,#ffe066)';
+          loginBtn.style.color = '#23243a';
+          loginBtn.style.fontWeight = 'bold';
+          
+          // Store user data in localStorage for persistence
+          localStorage.setItem('userEmail', data.email);
+          localStorage.setItem('userInitials', data.initials);
+          
+          alert('Login successful! Welcome ' + data.email);
+        } else {
+          alert('Login failed: ' + (data.error || 'Unknown error'));
+        }
+      })
+      .catch(error => {
+        console.error('Login error:', error);
+        alert('Login failed. Please try again.');
+      });
+      
+      loginModal.style.display = 'none';
+      document.getElementById('loginForm').reset();
+    }
+  </script>
+
+  <!-- Suggestion Modal -->
+  <div id="suggestionModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeSuggestionModal">&times;</span>
+      <h2>Submit a Suggestion</h2>
+      <form id="suggestionForm">
+        <label for="suggestionText">Write your suggestion</label>
+        <textarea id="suggestionText" name="suggestionText" required placeholder="Type your suggestion here..." style="width:100%;min-height:80px;border-radius:8px;padding:10px 14px;font-size:1.08em;"></textarea>
+        <button type="submit" id="submitSuggestionBtn" style="width:100%;padding:0.8rem;margin-top:1em;background:linear-gradient(90deg,#43c6ac 0%,#ffe066 100%);color:#23243a;font-weight:bold;border:none;border-radius:8px;font-size:1.1rem;cursor:pointer;">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Suggestion modal logic
+    const suggestionBtn = document.getElementById('suggestionBtn');
+    const suggestionModal = document.getElementById('suggestionModal');
+    const closeSuggestionModal = document.getElementById('closeSuggestionModal');
+
+    suggestionBtn.onclick = function() {
+      suggestionModal.style.display = 'flex';
+    }
+    closeSuggestionModal.onclick = function() {
+      suggestionModal.style.display = 'none';
+    }
+    window.onclick = function(event) {
+      if (event.target === suggestionModal) {
+        suggestionModal.style.display = 'none';
+      }
+    }
+
+    document.getElementById('suggestionForm').onsubmit = function(e) {
+      e.preventDefault();
+      const suggestion = document.getElementById('suggestionText').value;
+      fetch('/suggestion', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ suggestion })
+      })
+        .then(r => r.ok ? alert('Thank you for your suggestion!') : alert('Failed to submit suggestion.'))
+        .catch(() => alert('Failed to submit suggestion.'));
+      suggestionModal.style.display = 'none';
+      document.getElementById('suggestionForm').reset();
+    }
+  </script>
+</body>
+</html> 

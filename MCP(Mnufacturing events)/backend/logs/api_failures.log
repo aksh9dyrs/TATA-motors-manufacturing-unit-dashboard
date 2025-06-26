@@ -1,0 +1,44 @@
+Mon Jun 23 21:59:11 2025 | Unknown field for Message: role
+Mon Jun 23 22:01:58 2025 | Unknown field for Message: role
+Mon Jun 23 22:02:12 2025 | Unknown field for Message: role
+Mon Jun 23 22:02:38 2025 | Unknown field for Message: role
+Mon Jun 23 22:05:48 2025 | Unknown field for Message: role
+Mon Jun 23 22:05:48 2025 | Unknown field for Message: role
+Mon Jun 23 22:06:43 2025 | Unknown field for Message: role
+Mon Jun 23 22:16:06 2025 | HTTPSConnectionPool(host='api.grok.xai.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.grok.xai.com'. (_ssl.c:1000)")))
+Mon Jun 23 22:16:27 2025 | HTTPSConnectionPool(host='api.grok.xai.com', port=443): Max retries exceeded with url: /v1/chat/completions (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'api.grok.xai.com'. (_ssl.c:1000)")))
+Mon Jun 23 22:23:07 2025 | 403 Client Error: Forbidden for url: https://api.x.ai/v1/chat/completions
+Mon Jun 23 22:29:29 2025 | 403 Client Error: Forbidden for url: https://api.x.ai/v1/chat/completions
+Mon Jun 23 22:29:32 2025 | 403 Client Error: Forbidden for url: https://api.x.ai/v1/chat/completions
+Mon Jun 23 22:29:44 2025 | 403 Client Error: Forbidden for url: https://api.x.ai/v1/chat/completions
+Mon Jun 23 22:29:47 2025 | 403 Client Error: Forbidden for url: https://api.x.ai/v1/chat/completions
+Mon Jun 23 22:48:05 2025 | 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+Mon Jun 23 22:48:07 2025 | 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+Mon Jun 23 22:51:50 2025 | module 'openai.resources.chat.completions' has no attribute 'create'
+Mon Jun 23 22:51:52 2025 | module 'openai.resources.chat.completions' has no attribute 'create'
+Mon Jun 23 22:58:31 2025 | Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Mon Jun 23 22:58:36 2025 | Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Mon Jun 23 23:02:25 2025 | Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Mon Jun 23 23:02:31 2025 | Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Mon Jun 23 23:11:04 2025 | string indices must be integers, not 'str'
+Mon Jun 23 23:11:13 2025 | string indices must be integers, not 'str'
+Mon Jun 23 23:11:17 2025 | string indices must be integers, not 'str'
+Mon Jun 23 23:11:28 2025 | string indices must be integers, not 'str'
